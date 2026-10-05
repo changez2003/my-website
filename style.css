@@ -1,0 +1,75 @@
+:root {
+  --bg: #eaf1f6;
+  --card: #ffffff;
+  --ink: #0f2238;
+  --muted: #53647a;
+  --line: #c8d6e2;
+  --accent: #f2b705;
+  --accent-ink: #1a1400;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0c1828; --card: #13243a; --ink: #e9f0f7; --muted: #9bb0c6; --line: #284058; }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 400 1.05rem/1.6 "Figtree", system-ui, sans-serif; }
+a { color: inherit; }
+h1, h2, h3 { font-family: "Unbounded", system-ui, sans-serif; line-height: 1.2; margin: 0 0 .75rem; }
+
+.top {
+  position: sticky; top: 0; z-index: 5; display: flex; justify-content: space-between; align-items: center;
+  gap: 1rem; flex-wrap: wrap; padding: .9rem 1.5rem; background: var(--bg); border-bottom: 1px solid var(--line);
+}
+.brand { font: 700 1.05rem "Unbounded", sans-serif; text-decoration: none; }
+nav { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+nav a { text-decoration: none; color: var(--muted); font-weight: 500; }
+nav a:hover, nav a.on { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 3px; text-underline-offset: 6px; }
+
+main { max-width: 1040px; margin: 0 auto; padding: 0 1.5rem; }
+.hero { display: grid; grid-template-columns: 1.6fr 1fr; gap: 2.5rem; align-items: center; padding: 4rem 0 3rem; }
+.hero h1 { font-size: clamp(1.9rem, 4.6vw, 3.2rem); font-weight: 700; letter-spacing: -.02em; }
+.hero p { max-width: 52ch; color: var(--muted); }
+
+.pass {
+  background: var(--accent); color: var(--accent-ink); padding: 1.5rem 1.5rem 1.5rem 2rem; border-radius: 18px;
+  position: relative; background-image: radial-gradient(circle at 0 50%, var(--bg) 14px, transparent 15px);
+}
+.pass::after { content: ""; position: absolute; left: 1rem; top: 1rem; bottom: 1rem; border-left: 2px dashed rgba(26,20,0,.35); }
+.pass p { margin: 0; }
+.pass-title { font-size: .9rem; margin-top: .75rem !important; color: rgba(26,20,0,.75) !important; }
+.pass-title:first-child { margin-top: 0 !important; }
+.pass-big { font: 700 1.35rem "Unbounded", sans-serif; color: var(--accent-ink) !important; }
+
+.actions { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1.5rem 0 0; }
+.btn { display: inline-block; padding: .75rem 1.3rem; border-radius: 10px; border: 2px solid var(--ink); font-weight: 600; text-decoration: none; color: var(--ink); }
+.btn:hover { background: var(--ink); color: var(--bg); }
+.btn-primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn-primary:hover { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+a:focus-visible, .btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.block { padding: 3rem 0; border-top: 1px solid var(--line); }
+.block h2 { font-size: 1.5rem; margin-bottom: 1.5rem; }
+
+.tickets { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.25rem; }
+.ticket { background: var(--card); border: 1px solid var(--line); border-top: 6px solid var(--accent); border-radius: 12px; padding: 1.25rem; }
+.ticket h3 { font-size: 1rem; }
+.ticket p { margin: 0; color: var(--muted); font-size: .98rem; }
+
+.project { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; flex-wrap: wrap; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 1.5rem; }
+.project p { margin: 0; color: var(--muted); max-width: 52ch; }
+.project .actions { margin: 0; }
+
+.job h3 { font-size: 1.05rem; margin-bottom: .25rem; }
+.meta { color: var(--muted); margin: 0 0 .75rem; }
+.job ul { margin: 0; padding-left: 1.2rem; max-width: 62ch; }
+
+.contact p { color: var(--muted); max-width: 52ch; }
+footer { text-align: center; padding: 2rem 1rem 3rem; color: var(--muted); border-top: 1px solid var(--line); }
+footer p { margin: 0; }
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; padding-top: 2.5rem; }
+  .top { padding: .8rem 1rem; }
+  main { padding: 0 1rem; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
